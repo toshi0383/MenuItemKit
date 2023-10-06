@@ -99,6 +99,7 @@ private extension UIMenuController {
       setNewIMPWithBlock(block, forSelector: selector, toClass: self)
     }
 
+    #if os(iOS)
     if true {
       let selector = #selector(setTargetRect(_:in:))
       let origIMP = class_getMethodImplementation(self, selector)
@@ -111,6 +112,7 @@ private extension UIMenuController {
 
       setNewIMPWithBlock(block, forSelector: selector, toClass: self)
     }
+    #endif
 
     if #available(iOS 13.0, *) {
       let selector = #selector(showMenu(from:rect:))
